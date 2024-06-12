@@ -49,7 +49,7 @@ public class Produto {
         return "Produto{" +
                 "nome='" + nome + '\'' +
                 ", preco=" + preco +
-                ", dataValidade=" + dataValidade +
+                ", dataValidade=" + dataValidade.toString() + // Incluindo informações da data de validade
                 '}';
     }
 }

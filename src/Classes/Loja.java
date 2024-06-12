@@ -68,8 +68,8 @@ public class Loja {
                 "nome='" + nome + '\'' +
                 ", quantidadeFuncionarios=" + quantidadeFuncionarios +
                 ", salarioBaseFuncionario=" + salarioBaseFuncionario +
-                ", endereco=" + endereco +
-                ", dataFundacao=" + dataFundacao +
+                ", endereco=" + endereco.toString() + // Incluindo informações do endereço
+                ", dataFundacao=" + dataFundacao.toString() + // Incluindo informações da data de fundação
                 '}';
     }
 

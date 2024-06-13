@@ -1,4 +1,7 @@
 package Classes;
+
+import java.util.Arrays;
+
 public class Loja {
     // Atributos
     private String nome;
@@ -6,18 +9,20 @@ public class Loja {
     private double salarioBaseFuncionario;
     private Endereco endereco;
     private Data dataFundacao;
+    private Produto[] estoqueProdutos;
 
     // Métodos Construtores
-    public Loja(String nome, int quantidadeFuncionarios, double salarioBaseFuncionario, Endereco endereco, Data dataFundacao) {
+    public Loja(String nome, int quantidadeFuncionarios, double salarioBaseFuncionario, Endereco endereco, Data dataFundacao, int quantidadeMaximaProdutos) {
         this.nome = nome;
         this.quantidadeFuncionarios = quantidadeFuncionarios;
         this.salarioBaseFuncionario = salarioBaseFuncionario;
         this.endereco = endereco;
         this.dataFundacao = dataFundacao;
+        this.estoqueProdutos = new Produto[quantidadeMaximaProdutos];
     }
 
-    public Loja(String nome, int quantidadeFuncionarios, Endereco endereco, Data dataFundacao) {
-        this(nome, quantidadeFuncionarios, -1, endereco, dataFundacao); // Define o salário base como -1
+    public Loja(String nome, int quantidadeFuncionarios, Endereco endereco, Data dataFundacao, int quantidadeMaximaProdutos) {
+        this(nome, quantidadeFuncionarios, -1, endereco, dataFundacao, quantidadeMaximaProdutos); // Define o salário base como -1
     }
 
     // Métodos de acesso (getters e setters)
@@ -61,6 +66,46 @@ public class Loja {
         this.dataFundacao = dataFundacao;
     }
 
+    public Produto[] getEstoqueProdutos() {
+        return estoqueProdutos;
+    }
+
+    public void setEstoqueProdutos(Produto[] estoqueProdutos) {
+        this.estoqueProdutos = estoqueProdutos;
+    }
+
+    // Método imprimeProdutos
+    public void imprimeProdutos() {
+        System.out.println("Produtos no estoque:");
+        for (Produto produto : estoqueProdutos) {
+            if (produto != null) {
+                System.out.println(produto);
+            }
+        }
+    }
+
+    // Método insereProduto
+    public boolean insereProduto(Produto produto) {
+        for (int i = 0; i < estoqueProdutos.length; i++) {
+            if (estoqueProdutos[i] == null) {
+                estoqueProdutos[i] = produto;
+                return true;
+            }
+        }
+        return false; // Não há espaço disponível
+    }
+
+    // Método removeProduto
+    public boolean removeProduto(String nomeProduto) {
+        for (int i = 0; i < estoqueProdutos.length; i++) {
+            if (estoqueProdutos[i] != null && estoqueProdutos[i].getNome().equals(nomeProduto)) {
+                estoqueProdutos[i] = null;
+                return true;
+            }
+        }
+        return false; // Produto não encontrado
+    }
+
     // Método toString
     @Override
     public String toString() {
@@ -68,8 +113,9 @@ public class Loja {
                 "nome='" + nome + '\'' +
                 ", quantidadeFuncionarios=" + quantidadeFuncionarios +
                 ", salarioBaseFuncionario=" + salarioBaseFuncionario +
-                ", endereco=" + endereco.toString() + // Incluindo informações do endereço
-                ", dataFundacao=" + dataFundacao.toString() + // Incluindo informações da data de fundação
+                ", endereco=" + endereco.toString() +
+                ", dataFundacao=" + dataFundacao.toString() +
+                ", estoqueProdutos=" + Arrays.toString(estoqueProdutos) +
                 '}';
     }
 
@@ -93,4 +139,3 @@ public class Loja {
         }
     }
 }
-

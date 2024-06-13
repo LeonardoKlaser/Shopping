@@ -4,8 +4,8 @@ public class Vestuario extends Loja {
     private boolean produtosImportados;
 
     // Construtor
-    public Vestuario(String nome, int quantidadeFuncionarios, double salarioBaseFuncionario, Endereco endereco, Data dataFundacao, boolean produtosImportados) {
-        super(nome, quantidadeFuncionarios, salarioBaseFuncionario, endereco, dataFundacao);
+    public Vestuario(String nome, int quantidadeFuncionarios, int salarioBaseFuncionario, Endereco endereco, Data dataFundacao,  boolean produtosImportados, int quantidadeMaximaProdutos) {
+        super(nome, quantidadeFuncionarios, salarioBaseFuncionario, endereco, dataFundacao, quantidadeMaximaProdutos);
         this.produtosImportados = produtosImportados;
     }
 
@@ -13,6 +13,7 @@ public class Vestuario extends Loja {
     public boolean isProdutosImportados() {
         return produtosImportados;
     }
+
     public boolean getProdutosImportados() {
         return produtosImportados;
     }
@@ -34,4 +35,3 @@ public class Vestuario extends Loja {
                 '}';
     }
 }
-

@@ -4,8 +4,8 @@ public class Cosmetico extends Loja {
     private double taxaComercializacao;
 
     // Construtor
-    public Cosmetico(String nome, int quantidadeFuncionarios, double salarioBaseFuncionario, Endereco endereco, Data dataFundacao, double taxaComercializacao) {
-        super(nome, quantidadeFuncionarios, salarioBaseFuncionario, endereco, dataFundacao);
+    public Cosmetico(String nome, int quantidadeFuncionarios, double salarioBaseFuncionario, Endereco endereco, Data dataFundacao, int quantidadeMaximaProdutos, double taxaComercializacao) {
+        super(nome, quantidadeFuncionarios, salarioBaseFuncionario, endereco, dataFundacao, quantidadeMaximaProdutos);
         this.taxaComercializacao = taxaComercializacao;
     }
 
@@ -28,6 +28,7 @@ public class Cosmetico extends Loja {
                 ", endereco=" + getEndereco().toString() +
                 ", dataFundacao=" + getDataFundacao().toString() +
                 ", taxaComercializacao=" + taxaComercializacao +
+                ", estoqueProdutos=" + java.util.Arrays.toString(getEstoqueProdutos()) +
                 '}';
     }
 }

@@ -84,7 +84,7 @@ public class Principal {
         String numero = scanner.nextLine();
         System.out.print("Digite o complemento do endereço da loja: ");
         String complemento = scanner.nextLine();
-
+    
         Endereco endereco = new Endereco(nomeDaRua, cidade, estado, pais, cep, numero, complemento);
         System.out.print("Digite a data de fundação da loja (dia/mês/ano): ");
         String[] partesData = scanner.nextLine().split("/");
@@ -92,9 +92,13 @@ public class Principal {
         int mesFundacao = Integer.parseInt(partesData[1]);
         int anoFundacao = Integer.parseInt(partesData[2]);
         Data dataFundacao = new Data(diaFundacao, mesFundacao, anoFundacao);
-
-        return new Loja(nome, quantidadeFuncionarios, salarioBaseFuncionario, endereco, dataFundacao);
+    
+        System.out.print("Digite a quantidade máxima de produtos: ");
+        int quantidadeMaximaProdutos = Integer.parseInt(scanner.nextLine());
+    
+        return new Loja(nome, quantidadeFuncionarios, salarioBaseFuncionario, endereco, dataFundacao, quantidadeMaximaProdutos);
     }
+    
 
     private static Produto criarProduto(Scanner scanner) {
         System.out.print("Digite o nome do produto: ");

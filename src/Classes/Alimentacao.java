@@ -1,10 +1,11 @@
 package Classes;
+
 public class Alimentacao extends Loja {
     private Data dataAlvara;
 
     // Construtor
-    public Alimentacao(String nome, int quantidadeFuncionarios, double salarioBaseFuncionario, Endereco endereco, Data dataFundacao, Data dataAlvara) {
-        super(nome, quantidadeFuncionarios, salarioBaseFuncionario, endereco, dataFundacao);
+    public Alimentacao(String nome, int quantidadeFuncionarios, int salarioBaseFuncionario, Endereco endereco, Data dataFundacao, Data dataAlvara, int quantidadeMaximaProdutos) {
+        super(nome, quantidadeFuncionarios, salarioBaseFuncionario, endereco, dataFundacao, quantidadeMaximaProdutos);
         this.dataAlvara = dataAlvara;
     }
 
@@ -27,6 +28,7 @@ public class Alimentacao extends Loja {
                 ", endereco=" + getEndereco().toString() +
                 ", dataFundacao=" + getDataFundacao().toString() +
                 ", dataAlvara=" + dataAlvara.toString() +
+                ", estoqueProdutos=" + java.util.Arrays.toString(getEstoqueProdutos()) +
                 '}';
     }
 }
